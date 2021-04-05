@@ -20,3 +20,9 @@ target_link_libraries(counter fl)
 FLEX_TARGET(parser00v src/00-varname/grm/fl.l src/00-varname/fl.yy.c)
 add_executable(varname ${FLEX_parser00v_OUTPUTS})
 target_link_libraries(varname fl)
+
+
+# Write a LEX program to count the number of ‘scanf’ and ‘printf’ statements in a C  program. Replace them with ‘readf’ and ‘writef’ statements respectively. 
+FLEX_TARGET(parser00p src/00-replacer/grm/fl.l src/00-replacer/fl.yy.c)
+add_executable(replacer ${FLEX_parser00p_OUTPUTS})
+target_link_libraries(replacer fl)
