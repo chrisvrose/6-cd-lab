@@ -2,6 +2,8 @@
 
 This repository contains labwork for compiler design.
 
+Refer to [CMakeLists](./CMakeLists.txt) for the questions.
+
 The build system is with CMake.
 
 ```sh
