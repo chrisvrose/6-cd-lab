@@ -11,8 +11,6 @@ int numlines=0,numwhites=0;
 %%
 
 
-int yywrap(){}
-
 int main(){
     yylex();
     printf("Counts:\n %d %d %d %d\n",c1,c2,numlines,numwhites);

@@ -10,7 +10,7 @@ int c1=0,c2=0,c3=0;
 %%
 
 // Write a scanner to count the number of words, characters, lines and whitespaces. 
-int yywrap(){}
+// int yywrap(){}
 
 int main(){
     yylex();
