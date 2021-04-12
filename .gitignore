@@ -1,3 +1,6 @@
+*.tab.c
+*.tab.h
+*.yy.h
 *.yy.c
 build/
 CMakeLists.txt.user
