@@ -27,17 +27,24 @@ add_executable(003replacer ${FLEX_lexer00p_OUTPUTS})
 
 # yacc program to recognize a^n b^n
 BISON_TARGET(parser010 ${PROJECT_SOURCE_DIR}/src/010-matcher/grm/y.y ${PROJECT_SOURCE_DIR}/src/010-matcher/y.tab.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/010-matcher/y.tab.h)
-FLEX_TARGET(lexer010 ${PROJECT_SOURCE_DIR}/src/010-matcher/grm/fl.l ${PROJECT_SOURCE_DIR}/src/010-matcher/fl.yy.c )
+FLEX_TARGET(lexer010 ${PROJECT_SOURCE_DIR}/src/010-matcher/grm/fl.l ${PROJECT_SOURCE_DIR}/src/010-matcher/fl.yy.c  DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/010-matcher/fl.yy.h)
 
 ADD_FLEX_BISON_DEPENDENCY(lexer010 parser010)
 add_executable(010sample ${BISON_parser010_OUTPUTS} ${FLEX_lexer010_OUTPUTS})
 include_directories(010-sample ${BISON_parser010_OUTPUT_HEADER})
 
 
+# yacc program for infix to postfix
 BISON_TARGET(parser011 ${PROJECT_SOURCE_DIR}/src/011-postfix/grm/y.y ${PROJECT_SOURCE_DIR}/src/011-postfix/y.tab.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/011-postfix/y.tab.h)
-FLEX_TARGET(lexer011 ${PROJECT_SOURCE_DIR}/src/011-postfix/grm/fl.l ${PROJECT_SOURCE_DIR}/src/011-postfix/fl.yy.c )
+FLEX_TARGET(lexer011 ${PROJECT_SOURCE_DIR}/src/011-postfix/grm/fl.l ${PROJECT_SOURCE_DIR}/src/011-postfix/fl.yy.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/011-postfix/fl.yy.h)
 ADD_FLEX_BISON_DEPENDENCY(lexer011 parser011)
 add_executable(011-postfix ${BISON_parser011_OUTPUTS} ${FLEX_lexer011_OUTPUTS})
 
 
-# YACC program that reads the input expression and convert it to post fix expression.
+
+# YACC program that reads the input expression and convert it to post fix expression. -method 2
+BISON_TARGET(parser012 ${PROJECT_SOURCE_DIR}/src/012-postfix2/grm/y.y ${PROJECT_SOURCE_DIR}/src/012-postfix2/y.tab.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/012-postfix2/y.tab.h)
+FLEX_TARGET(lexer012 ${PROJECT_SOURCE_DIR}/src/012-postfix2/grm/fl.l ${PROJECT_SOURCE_DIR}/src/012-postfix2/fl.yy.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/011-postfix/fl.yy.h)
+ADD_FLEX_BISON_DEPENDENCY(lexer012 parser012)
+add_executable(012-postfix2 ${BISON_parser012_OUTPUTS} ${FLEX_lexer012_OUTPUTS})
+

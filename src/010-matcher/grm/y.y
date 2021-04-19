@@ -8,8 +8,7 @@ int yyerror(char* error){
 %}
 
 %%
-S : 'a' S 'b'
-  | 'a' 'b';
+S : 'a' S 'b'|;
 %%
 
 int main(void){
