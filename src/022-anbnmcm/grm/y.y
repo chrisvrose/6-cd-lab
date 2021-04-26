@@ -16,9 +16,9 @@ int yyerror(char* error){
 %%
 S: X Y;
 X: A X B
-|;
+ |;
 Y: B Y C
-|;
+ |;
 %%
 
 int main(void){

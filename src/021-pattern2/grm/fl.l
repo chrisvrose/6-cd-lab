@@ -7,12 +7,17 @@
 DI [0-9]
 EN [ \n]|"\r\n"
 %%
-[+-]?{DI}+[./][+-]{DI}{EN} {}
+[+-]?{DI}+[.][+-]{DI}{EN} {}
+[+]?{DI}+[/][+]{DI}{EN} {pfrac++;}
+[+]?{DI}+[/][-]{DI}{EN} {nfrac++;}
+[-]{DI}+[/][+]{DI}{EN} {nfrac++;}
+[-]{DI}+[/][-]{DI}{EN} {pfrac++;}
+
 [+]?{DI}+[./]{DI}+{EN} {pfrac++;}
 [-]{DI}+[./]{DI}+{EN} {nfrac++;}
 [+]?{DI}+{EN} {pint++;}
 [-]{DI}+{EN} {nint++;}
-[ \r\n] {} 
+.|[ \r\n] {} 
 %%
 
 int main(){

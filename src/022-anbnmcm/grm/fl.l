@@ -10,4 +10,5 @@
 [bB] return B;
 [cC] return C;
 [ \r\n]|"\r\n" {return 0;}
+. {return yytext[0];}
 %%
