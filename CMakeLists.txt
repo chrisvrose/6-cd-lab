@@ -48,3 +48,15 @@ FLEX_TARGET(lexer012 ${PROJECT_SOURCE_DIR}/src/012-postfix2/grm/fl.l ${PROJECT_S
 ADD_FLEX_BISON_DEPENDENCY(lexer012 parser012)
 add_executable(012-postfix2 ${BISON_parser012_OUTPUTS} ${FLEX_lexer012_OUTPUTS})
 
+
+
+# Write a LEX program to count number of Positive & negative integers and Positive & negative fractions
+FLEX_TARGET(021-pattern2 ${PROJECT_SOURCE_DIR}/src/021-pattern2/grm/fl.l ${PROJECT_SOURCE_DIR}/src/021-pattern2/fl.yy.c)
+add_executable(021-pattern2 ${FLEX_021-pattern2_OUTPUTS})
+
+
+# anbnmcm
+BISON_TARGET(parser022 ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/grm/y.y ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/y.tab.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/y.tab.h)
+FLEX_TARGET(lexer022 ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/grm/fl.l ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/fl.yy.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/fl.yy.h)
+ADD_FLEX_BISON_DEPENDENCY(lexer022 parser022)
+add_executable(022-anbnmcm ${BISON_parser022_OUTPUTS} ${FLEX_lexer022_OUTPUTS})
