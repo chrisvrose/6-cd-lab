@@ -47,7 +47,7 @@ factor: NUM {
           if(!ismap[yylval]){
             printf("\nP:Enter value for \'%c\':",yylval);
             scanf("%d",varmap+yylval);
-            
+            ismap[yylval]=1;
           }
           $$=varmap[yylval];
       }
