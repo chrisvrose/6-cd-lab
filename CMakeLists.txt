@@ -60,3 +60,10 @@ BISON_TARGET(parser022 ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/grm/y.y ${PROJECT_S
 FLEX_TARGET(lexer022 ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/grm/fl.l ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/fl.yy.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/fl.yy.h)
 ADD_FLEX_BISON_DEPENDENCY(lexer022 parser022)
 add_executable(022-anbnmcm ${BISON_parser022_OUTPUTS} ${FLEX_lexer022_OUTPUTS})
+
+
+# eval expr
+BISON_TARGET(parser031 ${PROJECT_SOURCE_DIR}/src/031-expreval/grm/y.y ${PROJECT_SOURCE_DIR}/src/031-expreval/y.tab.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/031-expreval/y.tab.h)
+FLEX_TARGET(lexer031 ${PROJECT_SOURCE_DIR}/src/031-expreval/grm/fl.l ${PROJECT_SOURCE_DIR}/src/031-expreval/fl.yy.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/031-expreval/fl.yy.h)
+ADD_FLEX_BISON_DEPENDENCY(lexer031 parser031)
+add_executable(031-expreval ${BISON_parser031_OUTPUTS} ${FLEX_lexer031_OUTPUTS})
