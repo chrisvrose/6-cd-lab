@@ -2,6 +2,17 @@
 
 This repository contains labwork for compiler design.
 
+## Program list
+
+|Program|Code|
+|---|---|
+|1a|001|
+|1b|022|
+|2a|021|
+|2b|031|
+
+## Compiling
+
 Refer to [CMakeLists](./CMakeLists.txt) for the questions.
 
 The build system is with CMake.
