@@ -31,7 +31,7 @@ expr: term {$$=$1;}
 
 term: factor
     | term MULT factor {$$=$1*$3;}
-    | term DIV factor {$$=$1/$3;}
+    | term DIV factor {if($3==0) yyerror("Division by zero");YYABORT;}
     ;
 
 factor: NUM {
@@ -52,6 +52,7 @@ factor: NUM {
           $$=varmap[yylval];
       }
       | BSTART expr BEND {$$=$2;}
+      ;
 %%
 
 int main(void){

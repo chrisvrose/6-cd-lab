@@ -11,7 +11,7 @@ link_libraries(${FLEX_LIBRARIES} ${BISON_LIBRARIES})
 FLEX_TARGET(lexer00b ${PROJECT_SOURCE_DIR}/src/000-basics/grm/fl.l ${PROJECT_SOURCE_DIR}/src/000-basics/fl.yy.c)
 add_executable(000intro ${FLEX_lexer00b_OUTPUTS})
 
-# Write a scanner to count the number of words, characters, lines and whitespaces.
+# 1a - Write a scanner to count the number of words, characters, lines and whitespaces.
 FLEX_TARGET(lexer00c ${PROJECT_SOURCE_DIR}/src/001-counter/grm/fl.l ${PROJECT_SOURCE_DIR}/src/001-counter/fl.yy.c)
 add_executable(001counter ${FLEX_lexer00c_OUTPUTS})
 
@@ -44,26 +44,32 @@ add_executable(011-postfix ${BISON_parser011_OUTPUTS} ${FLEX_lexer011_OUTPUTS})
 
 # YACC program that reads the input expression and convert it to post fix expression. -method 2
 BISON_TARGET(parser012 ${PROJECT_SOURCE_DIR}/src/012-postfix2/grm/y.y ${PROJECT_SOURCE_DIR}/src/012-postfix2/y.tab.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/012-postfix2/y.tab.h)
-FLEX_TARGET(lexer012 ${PROJECT_SOURCE_DIR}/src/012-postfix2/grm/fl.l ${PROJECT_SOURCE_DIR}/src/012-postfix2/fl.yy.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/011-postfix/fl.yy.h)
+FLEX_TARGET(lexer012 ${PROJECT_SOURCE_DIR}/src/012-postfix2/grm/fl.l ${PROJECT_SOURCE_DIR}/src/012-postfix2/fl.yy.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/012-postfix2/fl.yy.h)
 ADD_FLEX_BISON_DEPENDENCY(lexer012 parser012)
 add_executable(012-postfix2 ${BISON_parser012_OUTPUTS} ${FLEX_lexer012_OUTPUTS})
 
 
 
-# Write a LEX program to count number of Positive & negative integers and Positive & negative fractions
+# 2a - Write a LEX program to count number of Positive & negative integers and Positive & negative fractions
 FLEX_TARGET(021-pattern2 ${PROJECT_SOURCE_DIR}/src/021-pattern2/grm/fl.l ${PROJECT_SOURCE_DIR}/src/021-pattern2/fl.yy.c)
 add_executable(021-pattern2 ${FLEX_021-pattern2_OUTPUTS})
 
 
-# anbnmcm
+# 1b - anbnmcm
 BISON_TARGET(parser022 ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/grm/y.y ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/y.tab.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/y.tab.h)
 FLEX_TARGET(lexer022 ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/grm/fl.l ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/fl.yy.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/022-anbnmcm/fl.yy.h)
 ADD_FLEX_BISON_DEPENDENCY(lexer022 parser022)
 add_executable(022-anbnmcm ${BISON_parser022_OUTPUTS} ${FLEX_lexer022_OUTPUTS})
 
 
-# eval expr
+# 2b - eval expr
 BISON_TARGET(parser031 ${PROJECT_SOURCE_DIR}/src/031-expreval/grm/y.y ${PROJECT_SOURCE_DIR}/src/031-expreval/y.tab.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/031-expreval/y.tab.h)
 FLEX_TARGET(lexer031 ${PROJECT_SOURCE_DIR}/src/031-expreval/grm/fl.l ${PROJECT_SOURCE_DIR}/src/031-expreval/fl.yy.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/031-expreval/fl.yy.h)
 ADD_FLEX_BISON_DEPENDENCY(lexer031 parser031)
 add_executable(031-expreval ${BISON_parser031_OUTPUTS} ${FLEX_lexer031_OUTPUTS})
+
+# 
+# BISON_TARGET(parser032 ${PROJECT_SOURCE_DIR}/src/032-practice1/grm/y.y ${PROJECT_SOURCE_DIR}/src/032-practice1/y.tab.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/032-practice1/y.tab.h)
+# FLEX_TARGET(lexer032 ${PROJECT_SOURCE_DIR}/src/032-practice1/grm/fl.l ${PROJECT_SOURCE_DIR}/src/032-practice1/fl.yy.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/032-practice1/fl.yy.h)
+# ADD_FLEX_BISON_DEPENDENCY(lexer032 parser032)
+# add_executable(032-practice1 ${BISON_parser032_OUTPUTS} ${FLEX_lexer032_OUTPUTS})
