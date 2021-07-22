@@ -68,8 +68,8 @@ FLEX_TARGET(lexer031 ${PROJECT_SOURCE_DIR}/src/031-expreval/grm/fl.l ${PROJECT_S
 ADD_FLEX_BISON_DEPENDENCY(lexer031 parser031)
 add_executable(031-expreval ${BISON_parser031_OUTPUTS} ${FLEX_lexer031_OUTPUTS})
 
-# 
-# BISON_TARGET(parser032 ${PROJECT_SOURCE_DIR}/src/032-practice1/grm/y.y ${PROJECT_SOURCE_DIR}/src/032-practice1/y.tab.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/032-practice1/y.tab.h)
-# FLEX_TARGET(lexer032 ${PROJECT_SOURCE_DIR}/src/032-practice1/grm/fl.l ${PROJECT_SOURCE_DIR}/src/032-practice1/fl.yy.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/032-practice1/fl.yy.h)
-# ADD_FLEX_BISON_DEPENDENCY(lexer032 parser032)
-# add_executable(032-practice1 ${BISON_parser032_OUTPUTS} ${FLEX_lexer032_OUTPUTS})
+# 3a - for loop
+BISON_TARGET(parser041 ${PROJECT_SOURCE_DIR}/src/041-forloop/grm/y.y ${PROJECT_SOURCE_DIR}/src/041-forloop/y.tab.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/041-forloop/y.tab.h)
+FLEX_TARGET(lexer041 ${PROJECT_SOURCE_DIR}/src/041-forloop/grm/fl.l ${PROJECT_SOURCE_DIR}/src/041-forloop/fl.yy.c DEFINES_FILE ${PROJECT_SOURCE_DIR}/src/041-forloop/fl.yy.h)
+ADD_FLEX_BISON_DEPENDENCY(lexer041 parser041)
+add_executable(041-forloop ${BISON_parser041_OUTPUTS} ${FLEX_lexer041_OUTPUTS})
